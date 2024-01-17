@@ -23,16 +23,16 @@ function App() {
     return result;
   }
 
-  function handleChange(event, newValueId){
+  function handleChange(newValueId, newValue){
     setInputValues((oldInput) => {
-      let noZeroValue = removeLeadingZeros(event.target.value);
+      let noZeroValue = removeLeadingZeros(newValue);
       if(noZeroValue[0] === '-'){
         alert("The value must be greater than zero!");
         return oldInput;
       }
-      let newValue = parseFloat(noZeroValue);
+      let floatValue = parseFloat(noZeroValue);
       let input = {...oldInput,
-        [newValueId]: newValue}
+        [newValueId]: floatValue}
       let values = calculateInvestmentResults(input);
       setResultValues(values);
       return input;

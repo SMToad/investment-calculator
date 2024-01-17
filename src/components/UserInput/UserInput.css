@@ -10,7 +10,6 @@
     display: flex;
     justify-content: space-evenly;
     gap: 1.5rem;
-    flex-wrap: wrap;
   }
   
   #user-input label {
