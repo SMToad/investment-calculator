@@ -1,18 +1,27 @@
 import './UserInput.css';
 import InputElement from './InputElement';
 
-const INPUT_LABELS = [
-    "Initial Investment",
-    "Annual Investment",
-    "Expected Return",
-    "Duration"
-]
+export default function UserInput({inputValues, handleChange}){
+    const inputList = Object.keys(inputValues).map((key) => ({key: key, value: inputValues[key]}));
+    let labeledValues = {
+        "Initial Investment": inputList[0],
+        "Annual Investment": inputList[1],
+        "Expected Return": inputList[2],
+        "Duration": inputList[3]
+      };
 
-export default function UserInput(){
     return (
         <div id='user-input'>
             <div className='input-group'>
-                {INPUT_LABELS.map((inputLabel) => <InputElement inputLabel={inputLabel}/>)}
+                {
+                    Object.entries(labeledValues).map(([inputLabel, input], i) => (
+                        <InputElement 
+                            key={i} 
+                            inputLabel={inputLabel} 
+                            input={input} 
+                            handleChange={handleChange}/>
+                    ))
+                }
             </div>
         </div>
     )

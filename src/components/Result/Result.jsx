@@ -8,14 +8,24 @@ const COLUMN_HEADERS = [
     "Invested Capital"
 ]
 
-export default function Result(){
+export default function Result({annualData}){
     return (
         <table id="result">
             <thead>
-                {COLUMN_HEADERS.map((header) => <th>{header}</th>)}
+                <tr>
+                    {COLUMN_HEADERS.map((header, i) => <th key={i}>{header}</th>)}
+                </tr>
             </thead>
             <tbody>
-
+                {annualData.map((row, i) => (
+                    <tr key={i}>
+                        {
+                            Object.entries(row).map(([cellKey, cellValue], i) => (
+                            <td key={cellKey + i}>{cellValue}</td>
+                            ))
+                        }
+                    </tr>
+                ))}
             </tbody>
         </table>
     )
