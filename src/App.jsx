@@ -13,7 +13,6 @@ function App() {
       duration: 0
     }
   );
-  const [resultValues, setResultValues] = useState([]);
 
   function removeLeadingZeros(input) {
     let result = input;
@@ -30,12 +29,8 @@ function App() {
         alert("The value must be greater than zero!");
         return oldInput;
       }
-      let floatValue = parseFloat(noZeroValue);
-      let input = {...oldInput,
-        [newValueId]: floatValue}
-      let values = calculateInvestmentResults(input);
-      setResultValues(values);
-      return input;
+      return {...oldInput,
+        [newValueId]: +newValue};
     });
   }
 
@@ -43,7 +38,7 @@ function App() {
     <div>
       <Header/>
       <UserInput inputValues={inputValues} handleChange={handleChange}/>
-      <Result annualData={resultValues}/>
+      <Result inputData={inputValues}/>
     </div>
   )
 }

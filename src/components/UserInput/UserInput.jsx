@@ -19,11 +19,11 @@ export default function UserInput({inputValues, handleChange}){
             <div className='input-group'>
                 <InputElement 
                     inputLabel="Expected Return"
-                    input={inputList[0]}
+                    input={inputList[2]}
                     handleChange={handleChange}/>
                 <InputElement 
                     inputLabel="Duration"
-                    input={inputList[1]}
+                    input={inputList[3]}
                     handleChange={handleChange}/>
             </div>
         </section>

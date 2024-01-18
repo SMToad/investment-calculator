@@ -1,3 +1,4 @@
+import { calculateInvestmentResults } from '../../util/investment';
 import './Result.css';
 
 const COLUMN_HEADERS = [
@@ -8,7 +9,8 @@ const COLUMN_HEADERS = [
     "Invested Capital"
 ]
 
-export default function Result({annualData}){
+export default function Result({inputData}){
+    let annualData = calculateInvestmentResults(inputData);
     return (
         <table id="result">
             <thead>
