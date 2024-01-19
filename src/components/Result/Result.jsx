@@ -19,10 +19,10 @@ export default function Result({inputData}){
                 </tr>
             </thead>
             <tbody>
-                {annualData.map((row, i) => (
-                    <tr key={i}>
+                {annualData.map((yearData) => (
+                    <tr key={yearData.year}>
                         {
-                            Object.entries(row).map(([cellKey, cellValue], i) => (
+                            Object.entries(yearData).map(([cellKey, cellValue], i) => (
                             <td key={cellKey + i}>{cellValue}</td>
                             ))
                         }
